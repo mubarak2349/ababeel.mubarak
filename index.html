@@ -213,6 +213,83 @@ tbody tr:last-child td{border:none}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25);border-radius:2px}
 @media(max-width:700px){.sidebar{display:none}.fg2{grid-template-columns:1fr}.auth-grid{grid-template-columns:1fr}}
+
+/* ====== NEW FEATURE STYLES ====== */
+
+/* Feature 1: Health Score */
+.health-ring{width:110px;height:110px;flex-shrink:0}
+.health-ring svg{transform:rotate(-90deg)}
+.health-score-val{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700}
+.health-bar{height:8px;background:var(--smoke);border-radius:4px;overflow:hidden;margin:6px 0 3px}
+.health-bar-fill{height:100%;border-radius:4px;transition:.6s}
+
+/* Feature 2: Recurring Transactions */
+.rec-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);border-radius:12px;padding:2px 8px;font-size:10px;color:var(--purple);font-weight:600}
+
+/* Feature 3: Quick Calc FAB */
+#calcFab{position:fixed;bottom:24px;left:24px;z-index:200;width:46px;height:46px;background:linear-gradient(135deg,var(--gold),var(--gold2));border:none;border-radius:50%;font-size:20px;cursor:pointer;box-shadow:0 4px 16px rgba(201,168,76,.4);transition:.2s;display:none}
+#calcFab:hover{transform:scale(1.1)}
+#calcPanel{position:fixed;bottom:80px;left:24px;z-index:200;width:260px;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px;box-shadow:0 12px 40px rgba(0,0,0,.18);display:none}
+#calcPanel.open{display:block}
+.calc-display{background:var(--smoke);border-radius:8px;padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:20px;text-align:right;margin-bottom:10px;min-height:44px;word-break:break-all;color:var(--text)}
+.calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.calc-btn{background:var(--smoke);border:1px solid var(--border);border-radius:7px;padding:10px 4px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:.13s;color:var(--text)}
+.calc-btn:hover{background:rgba(201,168,76,.15);border-color:var(--gold);color:var(--gold)}
+.calc-btn.op{color:var(--gold);background:rgba(201,168,76,.08)}
+.calc-btn.eq{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);border:none;grid-column:span 2}
+.calc-btn.cl{color:var(--red);background:rgba(220,38,38,.07)}
+
+/* Feature 4: Notes */
+.note-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px;transition:.15s;position:relative}
+.note-card:hover{border-color:rgba(201,168,76,.3)}
+.note-date{font-size:10px;color:var(--muted);margin-bottom:5px}
+.note-txt{font-size:13px;line-height:1.7;color:var(--text);white-space:pre-wrap}
+.note-del{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px;opacity:.5;transition:.13s}
+.note-del:hover{opacity:1;color:var(--red)}
+
+/* Feature 5: Currency Converter */
+.cur-swap{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;flex-shrink:0;transition:.2s}
+.cur-swap:hover{background:rgba(201,168,76,.2);transform:rotate(180deg)}
+.cur-result{font-family:'JetBrains Mono',monospace;font-size:28px;color:var(--gold);font-weight:700;text-align:center;padding:18px;background:rgba(201,168,76,.06);border-radius:10px;margin-top:14px}
+
+/* Feature 6: Zakat */
+.zakat-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+.zakat-row:last-child{border:none}
+.zakat-total{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.05));border:1px solid rgba(201,168,76,.25);border-radius:10px;padding:16px;text-align:center;margin-top:14px}
+
+/* Feature 7: EMI Calculator */
+.emi-result-box{background:linear-gradient(135deg,var(--navy),#0d2550);color:#fff;border-radius:var(--r);padding:18px;margin-top:14px}
+.emi-lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,168,76,.6);margin-bottom:3px}
+.emi-val{font-family:'JetBrains Mono',monospace;font-size:22px;color:var(--gold);margin-bottom:12px}
+.emi-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.emi-mini{background:rgba(255,255,255,.05);border-radius:8px;padding:10px 12px}
+.emi-mini-l{font-size:10px;color:rgba(255,255,255,.4);margin-bottom:3px}
+.emi-mini-v{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--gold2)}
+
+/* Feature 8: Net Worth Timeline */
+.nw-timeline-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.nw-timeline-item:last-child{border:none}
+.nw-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* Feature 9: Print Report */
+@media print{
+  .sidebar,.topbar,#calcFab,#calcPanel,#toast,.tbbtn,.uchip,.bgrp,.action-btns,.bd,.bedit,.bs,.bp,.bsoft,.bgold{display:none!important}
+  body,.content{background:#fff!important;color:#000!important}
+  .section{display:block!important}
+  .card,.kc,.accard,.gcx,.nwbar{break-inside:avoid}
+}
+
+/* Feature 10: Date Range Filter in Ledger */
+.date-range-wrap{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.date-range-wrap input{padding:8px 10px;background:var(--smoke);border:1.5px solid var(--border);border-radius:7px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:12px;outline:none;transition:.18s}
+.dark .date-range-wrap input{background:rgba(255,255,255,.04)}
+.date-range-wrap input:focus{border-color:var(--gold)}
+
+/* Health score color */
+.hs-excellent{color:#16a34a}
+.hs-good{color:#22c55e}
+.hs-fair{color:#f59e0b}
+.hs-poor{color:#ef4444}
 </style>
 </head>
 <body>
@@ -277,6 +354,38 @@ tbody tr:last-child td{border:none}
   </div>
 </div>
 
+<!-- QUICK CALC FAB (Feature 3) -->
+<button id="calcFab" onclick="toggleCalc()" title="Quick Calculator">🧮</button>
+<div id="calcPanel">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)">Quick Calculator</span>
+    <button style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px" onclick="toggleCalc()">✕</button>
+  </div>
+  <div class="calc-display" id="calcDisplay">0</div>
+  <div class="calc-grid">
+    <button class="calc-btn cl" onclick="calcClear()">C</button>
+    <button class="calc-btn op" onclick="calcInput('(')">(</button>
+    <button class="calc-btn op" onclick="calcInput(')')">)</button>
+    <button class="calc-btn op" onclick="calcInput('%')">%</button>
+    <button class="calc-btn" onclick="calcInput('7')">7</button>
+    <button class="calc-btn" onclick="calcInput('8')">8</button>
+    <button class="calc-btn" onclick="calcInput('9')">9</button>
+    <button class="calc-btn op" onclick="calcInput('/')">÷</button>
+    <button class="calc-btn" onclick="calcInput('4')">4</button>
+    <button class="calc-btn" onclick="calcInput('5')">5</button>
+    <button class="calc-btn" onclick="calcInput('6')">6</button>
+    <button class="calc-btn op" onclick="calcInput('*')">×</button>
+    <button class="calc-btn" onclick="calcInput('1')">1</button>
+    <button class="calc-btn" onclick="calcInput('2')">2</button>
+    <button class="calc-btn" onclick="calcInput('3')">3</button>
+    <button class="calc-btn op" onclick="calcInput('-')">−</button>
+    <button class="calc-btn" onclick="calcInput('0')">0</button>
+    <button class="calc-btn" onclick="calcInput('.')">.</button>
+    <button class="calc-btn eq" onclick="calcEval()">=</button>
+    <button class="calc-btn op" onclick="calcInput('+')">+</button>
+  </div>
+</div>
+
 <!-- APP SHELL -->
 <div id="appShell">
   <header class="topbar">
@@ -287,6 +396,7 @@ tbody tr:last-child td{border:none}
       <button class="tbbtn" onclick="showSec('add')">+ ADD</button>
       <button class="tbbtn" onclick="toggleDark()">🌙</button>
       <button class="tbbtn" onclick="backupJSON()">BACKUP</button>
+      <button class="tbbtn" onclick="printReport()">🖨 PRINT</button>
       <div class="uchip" onclick="showSec('profile')">
         <div class="uav" id="uAv">G</div>
         <span id="uName">GUEST</span>
@@ -302,12 +412,18 @@ tbody tr:last-child td{border:none}
       <div class="ni" onclick="showSec('add',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>Add Entry</div>
       <div class="ni" onclick="showSec('ledger',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Ledger</div>
       <div class="ni" onclick="showSec('accounts',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>Bank Accounts</div>
+      <div class="ni" onclick="showSec('recurring',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="17,1 21,5 17,9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7,23 3,19 7,15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>Recurring</div>
       <div class="nsl">Finance</div>
       <div class="ni" onclick="showSec('budget',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Budget</div>
       <div class="ni" onclick="showSec('goals',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Goals</div>
       <div class="ni" onclick="showSec('receivables',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="23,6 13.5,15.5 8.5,10.5 1,18"/><polyline points="17,6 23,6 23,12"/></svg>Receivables</div>
       <div class="ni" onclick="showSec('payables',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="23,18 13.5,8.5 8.5,13.5 1,6"/><polyline points="17,18 23,18 23,12"/></svg>Payables</div>
       <div class="ni" onclick="showSec('commitments',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Commitments</div>
+      <div class="nsl">Tools</div>
+      <div class="ni" onclick="showSec('emi',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>EMI Calculator</div>
+      <div class="ni" onclick="showSec('zakat',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Zakat Calc</div>
+      <div class="ni" onclick="showSec('currency',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Currency</div>
+      <div class="ni" onclick="showSec('notes',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Notes</div>
       <div class="nsl">Investments</div>
       <div class="ni" onclick="showSec('stocks',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22,7 13.5,15.5 8.5,10.5 2,17"/><polyline points="16,7 22,7 22,13"/></svg>Stock Market</div>
       <div class="nsl">System</div>
@@ -336,6 +452,8 @@ tbody tr:last-child td{border:none}
           <div class="nws" id="nwS">Loading...</div>
         </div>
         <div class="kgrid" id="kpiGrid"></div>
+        <!-- Feature 1: Financial Health Score shown on dashboard -->
+        <div id="healthScoreCard" class="card" style="margin-bottom:16px"></div>
         <div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:16px">
           <div class="card"><div class="ch"><span class="ct">Income vs Expense</span></div><div class="chwrap"><canvas id="mainChart"></canvas></div></div>
           <div class="card"><div class="ch"><span class="ct">Spending by Category</span></div><div class="chwrap"><canvas id="pieChart"></canvas></div></div>
@@ -389,10 +507,18 @@ tbody tr:last-child td{border:none}
       <section id="sec-ledger" class="section">
         <div class="ph"><div><div class="ptitle">Transaction <span>Ledger</span></div><div class="psub">Full financial history</div></div><div style="display:flex;gap:8px"><button class="bs" onclick="exportCSV()">CSV</button><button class="bp" onclick="backupJSON()">BACKUP</button></div></div>
         <div class="card">
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:13px">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">
             <div class="sw" style="flex:1;min-width:180px;margin:0"><input id="lSrch" placeholder="Search..." oninput="renderLedger()"/></div>
             <select id="lType" onchange="renderLedger()" style="padding:9px 11px;background:var(--smoke);border:1.5px solid var(--border);border-radius:7px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:12px"><option value="">All Types</option><option value="income">Income</option><option value="expense">Expense</option><option value="transfer">Transfer</option></select>
             <select id="lAcc" onchange="renderLedger()" style="padding:9px 11px;background:var(--smoke);border:1.5px solid var(--border);border-radius:7px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:12px"><option value="">All Accounts</option></select>
+          </div>
+          <!-- Feature 10: Date Range Filter -->
+          <div class="date-range-wrap" style="margin-bottom:13px">
+            <span style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted)">Date:</span>
+            <input type="date" id="lDateFrom" onchange="renderLedger()" title="From date"/>
+            <span style="color:var(--muted);font-size:13px">→</span>
+            <input type="date" id="lDateTo" onchange="renderLedger()" title="To date"/>
+            <button class="bs" style="padding:7px 12px;font-size:10px" onclick="clearDateRange()">CLEAR</button>
           </div>
           <div class="tw"><table><thead><tr><th>Date</th><th>Account</th><th>Category</th><th>Debit</th><th>Credit</th><th>Note</th><th>Type</th><th>Actions</th></tr></thead><tbody id="ledgerTb"></tbody></table></div>
           <div style="font-size:11px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--border)" id="lCount">0 entries</div>
@@ -404,6 +530,17 @@ tbody tr:last-child td{border:none}
         <div class="ph"><div><div class="ptitle">Bank <span>Accounts</span></div><div class="psub">Manage all bank, cash and wallet accounts</div></div><button class="bp" onclick="openM('accModal')">+ ADD ACCOUNT</button></div>
         <div class="accgrid" id="accGrid"></div>
         <div class="card"><div class="ch"><span class="ct">Account Summary</span></div><div class="tw"><table><thead><tr><th>Name</th><th>Type</th><th>Total In</th><th>Total Out</th><th>Balance</th><th>Entries</th><th></th></tr></thead><tbody id="accSumTb"></tbody></table></div></div>
+      </section>
+
+      <!-- RECURRING TRANSACTIONS (Feature 2) -->
+      <section id="sec-recurring" class="section">
+        <div class="ph"><div><div class="ptitle">Recurring <span>Transactions</span></div><div class="psub">Auto-scheduled income & expenses</div></div><button class="bp" onclick="openM('recurModal')">+ ADD RECURRING</button></div>
+        <div class="card">
+          <div style="font-size:12px;color:var(--muted);margin-bottom:13px;padding:10px;background:rgba(201,168,76,.06);border-radius:8px;border:1px solid rgba(201,168,76,.15)">
+            💡 Recurring transactions remind you of scheduled entries. Click <b style="color:var(--gold)">Post Now</b> to add the transaction to your ledger.
+          </div>
+          <div class="tw"><table><thead><tr><th>Name</th><th>Type</th><th>Amount</th><th>Category</th><th>Frequency</th><th>Next Due</th><th>Account</th><th>Actions</th></tr></thead><tbody id="recurTb"></tbody></table></div>
+        </div>
       </section>
 
       <!-- BUDGET -->
@@ -436,11 +573,137 @@ tbody tr:last-child td{border:none}
         <div class="card"><div class="tw"><table><thead><tr><th>Commitment</th><th>Due Date</th><th>Status</th><th>Action</th></tr></thead><tbody id="commitTb"></tbody></table></div></div>
       </section>
 
+      <!-- EMI CALCULATOR (Feature 7) -->
+      <section id="sec-emi" class="section">
+        <div class="ph"><div><div class="ptitle">EMI / Loan <span>Calculator</span></div><div class="psub">Calculate monthly installments & total interest</div></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="card">
+            <div class="ch"><span class="ct">Loan Details</span></div>
+            <div class="fg"><label>Loan Amount (Principal)</label><input type="number" id="emiPrincipal" placeholder="500000" oninput="calcEMI()"/></div>
+            <div class="fg" style="margin-top:12px"><label>Annual Interest Rate (%)</label><input type="number" id="emiRate" placeholder="8.5" step="0.1" oninput="calcEMI()"/></div>
+            <div class="fg" style="margin-top:12px"><label>Loan Tenure (Months)</label><input type="number" id="emiTenure" placeholder="60" oninput="calcEMI()"/></div>
+            <div class="fg" style="margin-top:12px"><label>Loan Type</label>
+              <select id="emiType" onchange="calcEMI()">
+                <option value="reducing">Reducing Balance (Standard)</option>
+                <option value="flat">Flat Rate</option>
+              </select>
+            </div>
+            <div id="emiResult"></div>
+          </div>
+          <div class="card">
+            <div class="ch"><span class="ct">Amortization Overview</span></div>
+            <div class="chwrap"><canvas id="emiChart"></canvas></div>
+          </div>
+        </div>
+        <div class="card" id="emiScheduleCard" style="display:none">
+          <div class="ch"><span class="ct">EMI Schedule (First 12 Months)</span></div>
+          <div class="tw"><table><thead><tr><th>Month</th><th>EMI</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead><tbody id="emiScheduleTb"></tbody></table></div>
+        </div>
+      </section>
+
+      <!-- ZAKAT CALCULATOR (Feature 6) -->
+      <section id="sec-zakat" class="section">
+        <div class="ph"><div><div class="ptitle">Zakat <span>Calculator</span></div><div class="psub">Calculate your annual Zakat obligation (2.5% of eligible wealth above Nisab)</div></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="card">
+            <div class="ch"><span class="ct">Your Zakatable Assets</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:14px;padding:10px;background:rgba(201,168,76,.06);border-radius:8px;border:1px solid rgba(201,168,76,.15)">
+              ☪️ Zakat is 2.5% of your total eligible wealth held for one lunar year above the Nisab threshold (approx. 85g gold value). Enter your assets below:
+            </div>
+            <div class="fg"><label>Cash in Hand & Bank (₹)</label><input type="number" id="zCash" placeholder="0" oninput="calcZakat()"/></div>
+            <div class="fg" style="margin-top:10px"><label>Gold & Silver Value (₹)</label><input type="number" id="zGold" placeholder="0" oninput="calcZakat()"/></div>
+            <div class="fg" style="margin-top:10px"><label>Business Inventory / Stock Value (₹)</label><input type="number" id="zStock" placeholder="0" oninput="calcZakat()"/></div>
+            <div class="fg" style="margin-top:10px"><label>Investment / Shares / Mutual Funds (₹)</label><input type="number" id="zInv" placeholder="0" oninput="calcZakat()"/></div>
+            <div class="fg" style="margin-top:10px"><label>Receivables (money owed to you) (₹)</label><input type="number" id="zRecv" placeholder="0" oninput="calcZakat()"/></div>
+            <div class="fg" style="margin-top:10px"><label>Nisab Threshold (current gold rate)</label><input type="number" id="zNisab" placeholder="510000" value="510000" oninput="calcZakat()"/></div>
+          </div>
+          <div class="card">
+            <div class="ch"><span class="ct">Zakat Summary</span></div>
+            <div id="zakatResult">
+              <div class="emp"><div class="emp-i">☪️</div><div class="emp-t">Enter your assets to calculate</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CURRENCY CONVERTER (Feature 5) -->
+      <section id="sec-currency" class="section">
+        <div class="ph"><div><div class="ptitle">Currency <span>Converter</span></div><div class="psub">Live approximate exchange rates</div></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="card">
+            <div class="ch"><span class="ct">Convert Amount</span></div>
+            <div class="fg"><label>Amount</label><input type="number" id="curAmt" placeholder="1000" oninput="convertCurrency()"/></div>
+            <div style="display:flex;align-items:flex-end;gap:12px;margin-top:12px">
+              <div class="fg" style="flex:1;margin:0"><label>From</label>
+                <select id="curFrom" onchange="convertCurrency()">
+                  <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                  <option value="USD">🇺🇸 USD - US Dollar</option>
+                  <option value="EUR">🇪🇺 EUR - Euro</option>
+                  <option value="GBP">🇬🇧 GBP - British Pound</option>
+                  <option value="AED">🇦🇪 AED - UAE Dirham</option>
+                  <option value="SAR">🇸🇦 SAR - Saudi Riyal</option>
+                  <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                  <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                  <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                  <option value="SGD">🇸🇬 SGD - Singapore Dollar</option>
+                </select>
+              </div>
+              <div class="cur-swap" onclick="swapCurrencies()">⇄</div>
+              <div class="fg" style="flex:1;margin:0"><label>To</label>
+                <select id="curTo" onchange="convertCurrency()">
+                  <option value="USD">🇺🇸 USD - US Dollar</option>
+                  <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                  <option value="EUR">🇪🇺 EUR - Euro</option>
+                  <option value="GBP">🇬🇧 GBP - British Pound</option>
+                  <option value="AED">🇦🇪 AED - UAE Dirham</option>
+                  <option value="SAR">🇸🇦 SAR - Saudi Riyal</option>
+                  <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                  <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                  <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                  <option value="SGD">🇸🇬 SGD - Singapore Dollar</option>
+                </select>
+              </div>
+            </div>
+            <div class="cur-result" id="curResult">Enter amount to convert</div>
+            <div style="font-size:11px;color:var(--muted);text-align:center;margin-top:8px" id="curRate"></div>
+          </div>
+          <div class="card">
+            <div class="ch"><span class="ct">INR Quick Reference Rates</span></div>
+            <div id="curRefTable"></div>
+            <div style="font-size:10px;color:var(--muted);margin-top:12px">⚠️ Approximate rates for reference only. Not real-time. For accurate rates check your bank.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTES (Feature 4) -->
+      <section id="sec-notes" class="section">
+        <div class="ph"><div><div class="ptitle">Financial <span>Notes</span></div><div class="psub">Quick memos, reminders & personal finance notes</div></div></div>
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:16px">
+          <div class="card">
+            <div class="ch"><span class="ct">Add Note</span></div>
+            <div class="fg"><label>Title</label><input id="noteTitle" placeholder="Note title..."/></div>
+            <div class="fg" style="margin-top:10px"><label>Content</label><textarea id="noteTxt" placeholder="Write your memo, reminder or note here..." rows="6" style="resize:vertical"></textarea></div>
+            <div class="fg" style="margin-top:10px"><label>Tag</label>
+              <select id="noteTag">
+                <option value="general">📝 General</option>
+                <option value="reminder">⏰ Reminder</option>
+                <option value="idea">💡 Idea</option>
+                <option value="important">⭐ Important</option>
+                <option value="tax">🧾 Tax</option>
+              </select>
+            </div>
+            <div class="bgrp"><button class="bp" onclick="saveNote()">SAVE NOTE</button></div>
+          </div>
+          <div>
+            <div id="notesCont"></div>
+          </div>
+        </div>
+      </section>
+
       <!-- STOCKS -->
       <section id="sec-stocks" class="section">
         <div class="ph"><div><div class="ptitle">Stock Market <span>Investments</span></div><div class="psub">Buy/Sell tracking · Profit & Loss · Open Positions</div></div><button class="bp" onclick="openM('stockModal')">+ ADD TRADE</button></div>
         <div class="kgrid" id="stockKpi"></div>
-        <!-- Open Positions -->
         <div class="card">
           <div class="ch"><span class="ct">Open Positions (Holdings)</span><span class="ca" style="color:var(--green)">Click SELL to book profit/loss</span></div>
           <div id="openPositions"></div>
@@ -480,6 +743,7 @@ tbody tr:last-child td{border:none}
             <button class="bs" onclick="$('restInp').click()">📤 Restore Backup</button>
             <input type="file" id="restInp" accept=".json" style="display:none" onchange="restoreBackup(event)"/>
             <button class="bs" onclick="exportCSV()">📊 Export CSV</button>
+            <button class="bs" onclick="printReport()">🖨 Print Report</button>
             <button class="bd" style="padding:9px 18px;border-radius:7px" onclick="resetMyData()">🗑 Reset My Data</button>
           </div>
         </div>
@@ -512,17 +776,24 @@ tbody tr:last-child td{border:none}
       <!-- ABOUT -->
       <section id="sec-about" class="section">
         <div class="ph"><div><div class="ptitle">About <span>ABABEEL FINSOL PRO</span></div></div></div>
-        <div class="card" style="margin-bottom:20px"><div style="display:flex;align-items:center;gap:16px;margin-bottom:14px"><div style="font-size:44px">💎</div><div><div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--gold)">ABABEEL FINSOL PRO</div><div style="font-size:12px;color:var(--muted);margin-top:4px">Version 5.0 · Multi-User Personal Finance</div></div></div><div style="font-size:13px;color:var(--muted);line-height:1.8">Complete personal finance management with secure multi-user login, separate private data per user, multi-account support, stock investment tracking with open positions & sell from holdings, budget planning, savings goals, and advanced analytics. Indian time (IST) clock shown in topbar.</div></div>
+        <div class="card" style="margin-bottom:20px"><div style="display:flex;align-items:center;gap:16px;margin-bottom:14px"><div style="font-size:44px">💎</div><div><div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--gold)">ABABEEL FINSOL PRO</div><div style="font-size:12px;color:var(--muted);margin-top:4px">Version 6.0 · Multi-User Personal Finance + 10 New Features</div></div></div><div style="font-size:13px;color:var(--muted);line-height:1.8">Complete personal finance management with secure multi-user login, separate private data per user, multi-account support, stock investment tracking, budget planning, savings goals, advanced analytics, EMI calculator, Zakat calculator, currency converter, recurring transactions, financial health score, quick calculator, notes, date range filter, and print report.</div></div>
         <div class="af"><div class="afi">🔐</div><div><div class="aft">Multi-User Login — Completely Separate Data</div><div class="afd">Each account has its own private data. Admin: <b>admin / ababeel123</b>. Guest uses isolated namespace.</div></div></div>
-        <div class="af"><div class="afi">📈</div><div><div class="aft">Stock Market — Buy & Sell from Holdings</div><div class="afd">Add BUY trades. Open positions show automatically. Click SELL button next to any holding to book profit/loss at your rate. Realized P&L = (Sell − Buy) × Qty.</div></div></div>
-        <div class="af"><div class="afi">🏦</div><div><div class="aft">Bank Balance on Dashboard</div><div class="afd">All account balances shown as cards at top of dashboard. Net Worth = sum of all account balances.</div></div></div>
-        <div class="af"><div class="afi">🕐</div><div><div class="aft">Indian Standard Time Clock</div><div class="afd">Live IST clock shown in the topbar with greeting based on actual time of day.</div></div></div>
+        <div class="af"><div class="afi">📈</div><div><div class="aft">Stock Market — Buy & Sell from Holdings</div><div class="afd">Add BUY trades. Open positions show automatically. Click SELL button next to any holding to book profit/loss at your rate.</div></div></div>
+        <div class="af"><div class="afi">🏥</div><div><div class="aft">NEW: Financial Health Score</div><div class="afd">Get a 0–100 score based on savings rate, expense control, goal progress and account diversity. Shown on your dashboard.</div></div></div>
+        <div class="af"><div class="afi">🔄</div><div><div class="aft">NEW: Recurring Transactions</div><div class="afd">Schedule monthly/weekly/yearly recurring income and expenses. Post them to your ledger with one click.</div></div></div>
+        <div class="af"><div class="afi">🧮</div><div><div class="aft">NEW: Quick Calculator (FAB)</div><div class="afd">Floating calculator button (bottom-left) available everywhere in the app for quick calculations.</div></div></div>
+        <div class="af"><div class="afi">📝</div><div><div class="aft">NEW: Financial Notes</div><div class="afd">Save memos, reminders, tax notes, and ideas tagged by category.</div></div></div>
+        <div class="af"><div class="afi">💱</div><div><div class="aft">NEW: Currency Converter</div><div class="afd">Convert between 10 major currencies with approximate reference rates. Swap currencies with one click.</div></div></div>
+        <div class="af"><div class="afi">☪️</div><div><div class="aft">NEW: Zakat Calculator</div><div class="afd">Calculate your annual Zakat (2.5%) on eligible wealth above the Nisab threshold. Enter cash, gold, investments, receivables.</div></div></div>
+        <div class="af"><div class="afi">🏦</div><div><div class="aft">NEW: EMI / Loan Calculator</div><div class="afd">Calculate monthly EMI, total interest, and view an amortization schedule for reducing balance or flat rate loans.</div></div></div>
+        <div class="af"><div class="afi">📅</div><div><div class="aft">NEW: Date Range Filter in Ledger</div><div class="afd">Filter ledger transactions by a custom date range (from → to) in addition to existing search filters.</div></div></div>
+        <div class="af"><div class="afi">🖨</div><div><div class="aft">NEW: Print Financial Report</div><div class="afd">Print your full financial dashboard using browser print. Sidebar, buttons and UI elements are hidden for a clean report.</div></div></div>
       </section>
     </main>
   </div>
 </div>
 
-<!-- MODALS -->
+<!-- ORIGINAL MODALS (UNCHANGED) -->
 <div class="mo" id="accModal"><div class="mc"><div class="mt">Add Bank Account <button class="mx" onclick="closeM('accModal')">×</button></div><div class="fg2"><div class="fg ffl"><label>Account Name</label><input id="aN" placeholder="YES Bank, SBI Savings, Cash Wallet..."/></div><div class="fg"><label>Type</label><select id="aT"><option value="bank">Bank</option><option value="cash">Cash</option><option value="wallet">Digital Wallet</option></select></div><div class="fg"><label>Opening Balance</label><input id="aOB" type="number" step="0.01" placeholder="0.00"/></div></div><div class="bgrp"><button class="bp" onclick="addAccount()">ADD ACCOUNT</button><button class="bs" onclick="closeM('accModal')">CANCEL</button></div></div></div>
 <div class="mo" id="recvModal"><div class="mc"><div class="mt">Add Receivable <button class="mx" onclick="closeM('recvModal')">×</button></div><div class="fg2"><div class="fg"><label>From</label><input id="rFr" placeholder="Person or Company"/></div><div class="fg"><label>Amount</label><input id="rAm" type="number" placeholder="0.00"/></div><div class="fg ffl"><label>Due Date</label><input id="rDu" type="date"/></div></div><div class="bgrp"><button class="bp" onclick="addRecv()">ADD</button><button class="bs" onclick="closeM('recvModal')">CANCEL</button></div></div></div>
 <div class="mo" id="payModal"><div class="mc"><div class="mt">Add Payable <button class="mx" onclick="closeM('payModal')">×</button></div><div class="fg2"><div class="fg"><label>To</label><input id="pTo" placeholder="Person or Company"/></div><div class="fg"><label>Amount</label><input id="pAm" type="number" placeholder="0.00"/></div><div class="fg ffl"><label>Due Date</label><input id="pDu" type="date"/></div></div><div class="bgrp"><button class="bp" onclick="addPay()">ADD</button><button class="bs" onclick="closeM('payModal')">CANCEL</button></div></div></div>
@@ -563,13 +834,36 @@ tbody tr:last-child td{border:none}
     <button class="bs" onclick="closeM('editEntryModal')">CANCEL</button>
   </div>
 </div></div>
+
+<!-- NEW: RECURRING MODAL (Feature 2) -->
+<div class="mo" id="recurModal"><div class="mc"><div class="mt">Add Recurring Transaction <button class="mx" onclick="closeM('recurModal')">×</button></div>
+  <div class="fg2">
+    <div class="fg ffl"><label>Name</label><input id="recName" placeholder="Rent, Salary, EMI, SIP..."/></div>
+    <div class="fg"><label>Type</label><select id="recType"><option value="income">Income</option><option value="expense">Expense</option></select></div>
+    <div class="fg"><label>Amount</label><input id="recAmt" type="number" step="0.01" placeholder="0.00"/></div>
+    <div class="fg ffl"><label>Category</label><input id="recCat" placeholder="Category..."/></div>
+    <div class="fg"><label>Frequency</label>
+      <select id="recFreq">
+        <option value="monthly">Monthly</option>
+        <option value="weekly">Weekly</option>
+        <option value="yearly">Yearly</option>
+        <option value="quarterly">Quarterly</option>
+      </select>
+    </div>
+    <div class="fg"><label>Next Due Date</label><input id="recDue" type="date"/></div>
+    <div class="fg ffl"><label>Account</label><select id="recAcc"></select></div>
+    <div class="fg ffl"><label>Note</label><input id="recNote" placeholder="Optional..."/></div>
+  </div>
+  <div class="bgrp"><button class="bp" onclick="addRecurring()">ADD RECURRING</button><button class="bs" onclick="closeM('recurModal')">CANCEL</button></div>
+</div></div>
+
 <div id="toast"></div>
 
 <script>
 'use strict';
 let CUR='₹', DARK=false, curUser=null, DB={}, CH={}, anMode='monthly', pendingImport=[], sellTarget=null;
 const REGISTRY_KEY='finsol_users';
-const DB_KEYS=['accounts','entries','receivables','payables','commitments','budgets','goals','stocks'];
+const DB_KEYS=['accounts','entries','receivables','payables','commitments','budgets','goals','stocks','recurring','notes'];
 const CAT_PILLS=['Salary','Business','Freelance','Food','Transport','Rent','Utilities','Medical','Shopping','Education','Charity / Zakat','Sadaqah','Donation','Entertainment','Investment','Other'];
 
 function getRegistry(){try{return JSON.parse(localStorage.getItem(REGISTRY_KEY))||[];}catch{return[];}}
@@ -611,7 +905,6 @@ window.addEventListener('click',e=>{document.querySelectorAll('.mo.open').forEac
 function startClock(){
   function tick(){
     const now = new Date();
-
     const timeStr = now.toLocaleTimeString("en-IN", {
       timeZone: "Asia/Kolkata",
       hour: "2-digit",
@@ -619,34 +912,26 @@ function startClock(){
       second: "2-digit",
       hour12: true
     }) + " IST";
-
     const el = document.getElementById("clockDisplay");
     if(el) el.textContent = timeStr;
   }
-
   tick();
   setInterval(tick, 1000);
 }
 
-
-// IST GREETING
 function getISTGreeting(){
   const hour = new Date().toLocaleString("en-IN", {
     timeZone: "Asia/Kolkata",
     hour: "2-digit",
     hour12: false
   });
-
   const istH = parseInt(hour);
-
   if(istH >= 5 && istH < 12) return "Good Morning";
   if(istH >= 12 && istH < 17) return "Good Afternoon";
   if(istH >= 17 && istH < 21) return "Good Evening";
   return "Good Night";
 }
 
-
-// IST DATE
 function getISTDateStr(){
   return new Date().toLocaleDateString("en-IN", {
     timeZone: "Asia/Kolkata",
@@ -656,6 +941,7 @@ function getISTDateStr(){
     day: "numeric"
   });
 }
+
 // AUTH UI
 function switchAuthTab(tab){
   $('tabLogin').classList.toggle('active',tab==='login');
@@ -739,6 +1025,7 @@ function enterApp(userObj,isGuest){
   loadUserDB(curUser.ns);
   $('authOverlay').classList.add('hidden');
   $('appShell').style.display='flex';
+  $('calcFab').style.display='flex';
   $('uAv').textContent=(curUser.displayName||'G')[0].toUpperCase();
   $('uName').textContent=curUser.username.toUpperCase();
   if(curUser.role==='admin')$('adminNav').style.display='';
@@ -758,11 +1045,13 @@ function enterApp(userObj,isGuest){
   showSec('dashboard');
   renderDashboard();
   const dDateEl=$('dDate');if(dDateEl)dDateEl.textContent=getISTDateStr();
+  renderCurrencyRefTable();
 }
 
 function logout(){
   curUser=null;DB={};CH={};
   $('appShell').style.display='none';
+  $('calcFab').style.display='none';
   $('authOverlay').classList.remove('hidden');
   $('lU').value='';$('lP').value='';
   renderQuickUsers();
@@ -787,6 +1076,10 @@ function showSec(id,ni){
   if(id==='analytics')renderAnalytics();
   if(id==='admin')renderAdmin();
   if(id==='add'){populateAccountSelects();$('eDate').value=today();}
+  if(id==='recurring'){populateRecurSelects();renderRecurring();}
+  if(id==='notes')renderNotes();
+  if(id==='currency'){convertCurrency();renderCurrencyRefTable();}
+  if(id==='zakat')calcZakat();
 }
 
 // ACCOUNT BALANCE CALCULATION
@@ -804,9 +1097,105 @@ function calcAccBalance(accId){
   return bal;
 }
 
+// ==============================
+// FEATURE 1: FINANCIAL HEALTH SCORE
+// ==============================
+function calcHealthScore(){
+  let score=0, details=[];
+  const now=new Date(); const ym=now.toISOString().slice(0,7);
+  let mInc=0,mExp=0,totalInc=0,totalExp=0;
+  DB.entries.forEach(e=>{
+    if(e.type==='income'){totalInc+=parseFloat(e.amount||0);if((e.date||'').slice(0,7)===ym)mInc+=parseFloat(e.amount||0);}
+    if(e.type==='expense'){totalExp+=parseFloat(e.amount||0);if((e.date||'').slice(0,7)===ym)mExp+=parseFloat(e.amount||0);}
+  });
+
+  // Savings rate (30 pts)
+  if(mInc>0){
+    const sRate=(mInc-mExp)/mInc*100;
+    if(sRate>=30){score+=30;details.push({label:'Savings Rate',val:sRate.toFixed(0)+'%',pts:30,max:30,color:'var(--green)'});}
+    else if(sRate>=15){score+=20;details.push({label:'Savings Rate',val:sRate.toFixed(0)+'%',pts:20,max:30,color:'var(--gold)'});}
+    else if(sRate>=0){score+=10;details.push({label:'Savings Rate',val:sRate.toFixed(0)+'%',pts:10,max:30,color:'var(--red)'});}
+    else{details.push({label:'Savings Rate',val:sRate.toFixed(0)+'%',pts:0,max:30,color:'var(--red)'});}
+  } else {
+    details.push({label:'Savings Rate',val:'N/A',pts:0,max:30,color:'var(--muted)'});
+  }
+
+  // Budget adherence (20 pts)
+  if(DB.budgets.length>0){
+    let over=0;
+    DB.budgets.forEach(b=>{
+      const spent=DB.entries.filter(e=>e.type==='expense'&&e.category===b.category&&(e.date||'').slice(0,7)===ym).reduce((s,e)=>s+parseFloat(e.amount||0),0);
+      if(spent>b.limit)over++;
+    });
+    const ok=DB.budgets.length-over;
+    const pts=Math.round((ok/DB.budgets.length)*20);
+    score+=pts;
+    details.push({label:'Budget Adherence',val:ok+'/'+DB.budgets.length+' categories',pts,max:20,color:pts>=15?'var(--green)':pts>=10?'var(--gold)':'var(--red)'});
+  } else {
+    details.push({label:'Budget Set',val:'None',pts:0,max:20,color:'var(--muted)'});
+  }
+
+  // Goals progress (20 pts)
+  if(DB.goals.length>0){
+    const avgPct=DB.goals.reduce((s,g)=>s+Math.min(100,(g.current/g.target)*100),0)/DB.goals.length;
+    const pts=Math.round(avgPct/5);
+    score+=pts;
+    details.push({label:'Goals Progress',val:avgPct.toFixed(0)+'% avg',pts,max:20,color:pts>=15?'var(--green)':pts>=10?'var(--gold)':'var(--red)'});
+  } else {
+    details.push({label:'Goals Set',val:'None',pts:0,max:20,color:'var(--muted)'});
+  }
+
+  // No overdue payables (15 pts)
+  const overduePay=DB.payables.filter(p=>p.due&&p.due<today()&&p.status!=='paid').length;
+  if(overduePay===0){score+=15;details.push({label:'Payables Current',val:'No overdue',pts:15,max:15,color:'var(--green)'});}
+  else{details.push({label:'Payables Current',val:overduePay+' overdue',pts:0,max:15,color:'var(--red)'});}
+
+  // Account diversity (15 pts)
+  const acTypes=new Set(DB.accounts.map(a=>a.type));
+  const pts2=Math.min(15,acTypes.size*5);
+  score+=pts2;
+  details.push({label:'Account Diversity',val:acTypes.size+' types',pts:pts2,max:15,color:pts2>=10?'var(--green)':pts2>=5?'var(--gold)':'var(--red)'});
+
+  return{score:Math.min(100,score),details};
+}
+
+function renderHealthScore(){
+  const el=$('healthScoreCard');if(!el)return;
+  const {score,details}=calcHealthScore();
+  const color=score>=80?'var(--green)':score>=60?'var(--gold)':score>=40?'#f59e0b':'var(--red)';
+  const label=score>=80?'Excellent':score>=60?'Good':score>=40?'Fair':'Needs Attention';
+  const r=44,circ=2*Math.PI*r;
+  const dash=(score/100)*circ;
+
+  el.innerHTML=`
+    <div class="ch"><span class="ct">Financial Health Score</span><span class="ca" onclick="renderHealthScore()">Refresh</span></div>
+    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+      <div style="text-align:center;flex-shrink:0">
+        <svg class="health-ring" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="${r}" fill="none" stroke="var(--smoke)" stroke-width="10"/>
+          <circle cx="50" cy="50" r="${r}" fill="none" stroke="${color}" stroke-width="10"
+            stroke-dasharray="${dash} ${circ}" stroke-linecap="round"
+            style="transition:.8s;transform-origin:center;transform:rotate(-90deg) translate(-100px,0)"/>
+          <text x="50" y="45" text-anchor="middle" font-family="JetBrains Mono" font-size="18" font-weight="700" fill="${color}">${score}</text>
+          <text x="50" y="60" text-anchor="middle" font-family="DM Sans" font-size="8" fill="var(--muted)">/100</text>
+        </svg>
+        <div style="font-size:12px;font-weight:700;color:${color};margin-top:4px">${label}</div>
+      </div>
+      <div style="flex:1;min-width:200px">
+        ${details.map(d=>`
+          <div style="margin-bottom:10px">
+            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px">
+              <span style="color:var(--text);font-weight:500">${d.label}</span>
+              <span style="color:var(--muted)">${d.val} <b style="color:${d.color}">(${d.pts}/${d.max})</b></span>
+            </div>
+            <div class="health-bar"><div class="health-bar-fill" style="width:${(d.pts/d.max)*100}%;background:${d.color}"></div></div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+}
+
 // DASHBOARD
 function renderDashboard(){
-  // Greeting based on IST time
   const greeting=getISTGreeting();
   const greetEl=$('greet');
   const greetLine=$('greetLine');
@@ -832,11 +1221,9 @@ function renderDashboard(){
     }).join('');
   }
 
-  // Net Worth
   let totalBal=DB.accounts.reduce((s,a)=>s+calcAccBalance(a.id),0);
   $('nwV').textContent=fmt(totalBal);
 
-  // This month stats
   const now=new Date();const ym=now.toISOString().slice(0,7);
   let mInc=0,mExp=0;
   DB.entries.forEach(e=>{
@@ -848,7 +1235,6 @@ function renderDashboard(){
   const mSav=mInc-mExp;
   $('nwS').innerHTML=`This month: <b style="color:#4ade80">+${fmt(mInc)}</b> Income &nbsp;|&nbsp; <b style="color:#f87171">-${fmt(mExp)}</b> Expenses &nbsp;|&nbsp; <b style="color:var(--gold)">${fmt(mSav)}</b> Savings`;
 
-  // KPI
   const kpi=$('kpiGrid');
   if(kpi){
     kpi.innerHTML=`
@@ -860,10 +1246,11 @@ function renderDashboard(){
       <div class="kc kp"><div class="ki kp">📊</div><div class="kl">Total Entries</div><div class="kv">${DB.entries.length}</div></div>`;
   }
 
-  // Charts
+  // Feature 1: Render health score
+  renderHealthScore();
+
   buildMainChart();buildPieChart();
 
-  // Recent transactions
   const sorted=[...DB.entries].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
   const recent=sorted.slice(0,10);
   const tb=$('recentTb');
@@ -967,20 +1354,28 @@ function populateLedgerFilters(){
   if(el){el.innerHTML='<option value="">All Accounts</option>'+DB.accounts.map(a=>`<option value="${a.id}">${esc(a.name)}</option>`).join('');}
 }
 
+// Feature 10: Date range filter added
+function clearDateRange(){
+  const f=$('lDateFrom'),t=$('lDateTo');
+  if(f)f.value='';if(t)t.value='';
+  renderLedger();
+}
+
 function renderLedger(){
   const srch=($('lSrch')?.value||'').toLowerCase();
   const type=$('lType')?.value||'';
   const acc=$('lAcc')?.value||'';
+  const dateFrom=$('lDateFrom')?.value||'';
+  const dateTo=$('lDateTo')?.value||'';
   let list=[...DB.entries].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
   if(type)list=list.filter(e=>e.type===type);
   if(acc)list=list.filter(e=>e.account===acc||e.from===acc||e.to===acc);
   if(srch)list=list.filter(e=>(e.category+e.note+e.date).toLowerCase().includes(srch));
-  
-  // Running balance per account (for display)
+  if(dateFrom)list=list.filter(e=>(e.date||'')>=dateFrom);
+  if(dateTo)list=list.filter(e=>(e.date||'')<=dateTo);
+
   const tb=$('ledgerTb');
   if(!tb)return;
-  let running={};
-  DB.accounts.forEach(a=>{running[a.id]=calcAccBalance(a.id);});
 
   tb.innerHTML=list.length?list.map(e=>{
     const acc=DB.accounts.find(a=>a.id===(e.account||e.from));
@@ -997,7 +1392,7 @@ function renderLedger(){
       <td><div class="action-btns"><button class="bedit" onclick="openEditEntry('${e.id}')">✏ Edit</button><button class="bd" onclick="delEntry('${e.id}')">✕</button></div></td>
     </tr>`;
   }).join(''):'<tr><td colspan="8" class="emp"><div class="emp-i">📋</div><div class="emp-t">No entries found</div></td></tr>';
-  
+
   const lc=$('lCount');if(lc)lc.textContent=list.length+' entries';
 }
 
@@ -1028,7 +1423,6 @@ function openEditEntry(id){
   } else {
     $('editSing').value=e.account||'';
   }
-  // Build cat pills for edit modal
   const ep=$('editCatPills');
   if(ep)ep.innerHTML=CAT_PILLS.map(c=>`<div class="cpill" onclick="$('editCat').value='${esc(c)}'">${c}</div>`).join('');
   onEditKindChange();
@@ -1104,6 +1498,75 @@ function delAccount(id){
   DB.accounts=DB.accounts.filter(a=>a.id!==id);saveDB();renderAccounts();populateAccountSelects();toast('Account deleted','info');
 }
 
+// ==============================
+// FEATURE 2: RECURRING TRANSACTIONS
+// ==============================
+function populateRecurSelects(){
+  const opts=DB.accounts.map(a=>`<option value="${a.id}">${esc(a.name)}</option>`).join('');
+  const el=$('recAcc');if(el)el.innerHTML=opts;
+}
+
+function renderRecurring(){
+  const tb=$('recurTb');if(!tb)return;
+  if(!DB.recurring.length){
+    tb.innerHTML='<tr><td colspan="8" class="emp"><div class="emp-i">🔄</div><div class="emp-t">No recurring transactions. Click + ADD RECURRING.</div></td></tr>';
+    return;
+  }
+  tb.innerHTML=DB.recurring.map(r=>{
+    const acc=DB.accounts.find(a=>a.id===r.account);
+    const isOverdue=r.nextDue&&r.nextDue<today();
+    return`<tr>
+      <td><b>${esc(r.name)}</b>${isOverdue?'<span class="badge overdue" style="margin-left:6px;font-size:10px">DUE</span>':''}</td>
+      <td><span class="badge ${r.type}">${r.type}</span></td>
+      <td class="${r.type==='income'?'cc':'dc'}">${fmt(r.amount)}</td>
+      <td>${esc(r.category||'—')}</td>
+      <td><span class="rec-badge">🔄 ${r.frequency}</span></td>
+      <td style="color:${isOverdue?'var(--red)':'var(--text)'};font-weight:${isOverdue?700:400}">${r.nextDue||'—'}</td>
+      <td>${esc(acc?.name||'—')}</td>
+      <td><div class="action-btns">
+        <button class="bgold" style="font-size:10px;padding:4px 8px" onclick="postRecurring('${r.id}')">Post Now</button>
+        <button class="bd" onclick="delRecurring('${r.id}')">✕</button>
+      </div></td>
+    </tr>`;
+  }).join('');
+}
+
+function addRecurring(){
+  const name=($('recName').value||'').trim();
+  const amt=parseFloat($('recAmt').value||0);
+  if(!name||!amt){toast('Fill name and amount','error');return;}
+  DB.recurring.push({
+    id:uid(),name,type:$('recType').value,amount:amt,
+    category:$('recCat').value||'Other',frequency:$('recFreq').value,
+    nextDue:$('recDue').value,account:$('recAcc').value,note:$('recNote').value||''
+  });
+  saveDB();closeM('recurModal');
+  $('recName').value='';$('recAmt').value='';$('recCat').value='';$('recNote').value='';
+  renderRecurring();toast('Recurring transaction added','success');
+}
+
+function postRecurring(id){
+  const r=DB.recurring.find(x=>x.id===id);
+  if(!r){toast('Not found','error');return;}
+  const entry={id:uid(),date:today(),type:r.type,amount:r.amount,category:r.category,note:'[Recurring] '+r.name,account:r.account};
+  DB.entries.push(entry);
+  // Advance next due date
+  if(r.nextDue){
+    const d=new Date(r.nextDue);
+    if(r.frequency==='monthly')d.setMonth(d.getMonth()+1);
+    else if(r.frequency==='weekly')d.setDate(d.getDate()+7);
+    else if(r.frequency==='yearly')d.setFullYear(d.getFullYear()+1);
+    else if(r.frequency==='quarterly')d.setMonth(d.getMonth()+3);
+    r.nextDue=d.toISOString().slice(0,10);
+  }
+  saveDB();renderRecurring();renderDashboard();
+  toast(`${r.name} posted to ledger!`,'success');
+}
+
+function delRecurring(id){
+  DB.recurring=DB.recurring.filter(x=>x.id!==id);saveDB();renderRecurring();toast('Removed','info');
+}
+
 // BUDGET
 function renderBudget(){
   const now=new Date();const ym=now.toISOString().slice(0,7);
@@ -1175,7 +1638,6 @@ function delCommit(id){DB.commitments=DB.commitments.filter(x=>x.id!==id);saveDB
 
 // STOCKS
 function getOpenPositions(){
-  // Calculate net holdings per symbol (sum BUY, subtract SELL)
   const pos={};
   DB.stocks.forEach(t=>{
     const sym=(t.symbol||'').toUpperCase();
@@ -1198,7 +1660,6 @@ function getOpenPositions(){
 }
 
 function renderStocks(){
-  // KPI
   const trades=DB.stocks;
   let totalInvested=0,realizedPnl=0,winTrades=0,sellTrades=0;
   trades.forEach(t=>{
@@ -1219,7 +1680,6 @@ function renderStocks(){
       <div class="kc kg"><div class="ki kg">🔄</div><div class="kl">Total Trades</div><div class="kv">${trades.length}</div></div>`;
   }
 
-  // Open Positions
   const positions=getOpenPositions();
   const opEl=$('openPositions');
   if(opEl){
@@ -1238,10 +1698,8 @@ function renderStocks(){
     }
   }
 
-  // Monthly P&L chart
   buildStockChart();
 
-  // Trades table
   const sorted=[...DB.stocks].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
   const tb=$('stockTb');
   if(tb){
@@ -1373,8 +1831,7 @@ function renderAnalytics(){
     const net=labs.map(m=>months[m].inc-months[m].exp);
     CH.an=new Chart(ctx,{type:'bar',data:{labels:labs,datasets:[{label:'Net P&L',data:net,backgroundColor:net.map(v=>v>=0?'rgba(34,197,94,.75)':'rgba(239,68,68,.75)'),borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'var(--muted)'}}},scales:{x:{ticks:{color:'var(--muted)'}},y:{ticks:{color:'var(--muted)'}}}}});
   }
-  
-  // Stats
+
   let totalInc=0,totalExp=0;
   DB.entries.forEach(e=>{if(e.type==='income')totalInc+=parseFloat(e.amount||0);if(e.type==='expense')totalExp+=parseFloat(e.amount||0);});
   const as=$('anStats');
@@ -1385,6 +1842,215 @@ function renderAnalytics(){
       <div class="kc kg"><div class="ki kg">💰</div><div class="kl">Net Savings</div><div class="kv ${totalInc-totalExp>=0?'cc':'dc'}">${fmt(totalInc-totalExp)}</div></div>
       <div class="kc kb"><div class="ki kb">📊</div><div class="kl">Transactions</div><div class="kv">${DB.entries.length}</div></div>`;
   }
+}
+
+// ==============================
+// FEATURE 7: EMI CALCULATOR
+// ==============================
+let emiChartInst=null;
+function calcEMI(){
+  const P=parseFloat($('emiPrincipal').value||0);
+  const annualR=parseFloat($('emiRate').value||0);
+  const n=parseInt($('emiTenure').value||0);
+  const type=$('emiType').value;
+  if(!P||!annualR||!n){$('emiResult').innerHTML='';$('emiScheduleCard').style.display='none';return;}
+
+  let emi,totalPayment,totalInterest;
+
+  if(type==='reducing'){
+    const r=annualR/12/100;
+    emi=P*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+    totalPayment=emi*n;
+    totalInterest=totalPayment-P;
+  } else {
+    // Flat rate
+    totalInterest=P*(annualR/100)*(n/12);
+    totalPayment=P+totalInterest;
+    emi=totalPayment/n;
+  }
+
+  $('emiResult').innerHTML=`
+    <div class="emi-result-box">
+      <div class="emi-lbl">Monthly EMI</div>
+      <div class="emi-val">${fmt(emi)}</div>
+      <div class="emi-grid">
+        <div class="emi-mini"><div class="emi-mini-l">Principal</div><div class="emi-mini-v">${fmt(P)}</div></div>
+        <div class="emi-mini"><div class="emi-mini-l">Total Interest</div><div class="emi-mini-v">${fmt(totalInterest)}</div></div>
+        <div class="emi-mini"><div class="emi-mini-l">Total Payment</div><div class="emi-mini-v">${fmt(totalPayment)}</div></div>
+        <div class="emi-mini"><div class="emi-mini-l">Interest %</div><div class="emi-mini-v">${((totalInterest/P)*100).toFixed(1)}%</div></div>
+      </div>
+    </div>`;
+
+  // Pie chart
+  const ctx=$('emiChart');
+  if(ctx){
+    if(emiChartInst)emiChartInst.destroy();
+    emiChartInst=new Chart(ctx,{type:'doughnut',data:{labels:['Principal','Total Interest'],datasets:[{data:[P,totalInterest],backgroundColor:['rgba(37,99,235,.75)','rgba(239,68,68,.75)'],borderWidth:3,borderColor:'var(--panel)'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'var(--muted)',font:{size:11}}}}}});
+  }
+
+  // Schedule (first 12 months, reducing balance)
+  const sc=$('emiScheduleCard'),tb=$('emiScheduleTb');
+  if(sc&&tb){
+    sc.style.display='';
+    let balance=P;
+    let rows='';
+    const r=annualR/12/100;
+    for(let i=1;i<=Math.min(12,n);i++){
+      const interest=type==='reducing'?balance*r:(P*annualR/100)/12;
+      const principal=emi-interest;
+      balance=Math.max(0,balance-principal);
+      rows+=`<tr><td>${i}</td><td class="nc">${fmt(emi)}</td><td class="cc">${fmt(principal)}</td><td class="dc">${fmt(interest)}</td><td class="nc">${fmt(balance)}</td></tr>`;
+    }
+    tb.innerHTML=rows;
+  }
+}
+
+// ==============================
+// FEATURE 6: ZAKAT CALCULATOR
+// ==============================
+function calcZakat(){
+  const cash=parseFloat($('zCash')?.value||0);
+  const gold=parseFloat($('zGold')?.value||0);
+  const stock=parseFloat($('zStock')?.value||0);
+  const inv=parseFloat($('zInv')?.value||0);
+  const recv=parseFloat($('zRecv')?.value||0);
+  const nisab=parseFloat($('zNisab')?.value||510000);
+  const el=$('zakatResult');if(!el)return;
+
+  const total=cash+gold+stock+inv+recv;
+  const zakatAmount=total*0.025;
+  const eligible=total>=nisab;
+
+  el.innerHTML=`
+    <div style="font-size:12px;color:var(--muted);margin-bottom:12px">☪️ Nisab Threshold: <b style="color:var(--gold)">${fmt(nisab)}</b></div>
+    <div class="zakat-row"><span style="color:var(--muted)">Cash & Bank</span><span class="nc">${fmt(cash)}</span></div>
+    <div class="zakat-row"><span style="color:var(--muted)">Gold & Silver</span><span class="nc">${fmt(gold)}</span></div>
+    <div class="zakat-row"><span style="color:var(--muted)">Business / Stock</span><span class="nc">${fmt(stock)}</span></div>
+    <div class="zakat-row"><span style="color:var(--muted)">Investments</span><span class="nc">${fmt(inv)}</span></div>
+    <div class="zakat-row"><span style="color:var(--muted)">Receivables</span><span class="nc">${fmt(recv)}</span></div>
+    <div class="zakat-row" style="border-top:2px solid var(--gold);padding-top:12px;margin-top:4px"><span style="font-weight:700;color:var(--text)">Total Zakatable Wealth</span><span style="font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:var(--gold)">${fmt(total)}</span></div>
+    <div class="zakat-total">
+      ${eligible?`
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,168,76,.65);margin-bottom:6px">Your Annual Zakat (2.5%)</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:30px;color:var(--gold);font-weight:700">${fmt(zakatAmount)}</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:6px">Monthly: ${fmt(zakatAmount/12)} &nbsp;|&nbsp; Weekly: ${fmt(zakatAmount/52)}</div>
+        <div style="font-size:12px;color:#4ade80;margin-top:8px">✅ Above Nisab — Zakat is obligatory</div>`
+        :`<div style="font-size:13px;color:var(--muted)">⚠️ Total wealth ${fmt(total)} is below Nisab ${fmt(nisab)}.<br>Zakat is <b>not obligatory</b> at this level.</div>`}
+    </div>
+    <div style="font-size:10px;color:var(--muted);margin-top:10px">📌 This is an estimate. Consult a scholar for exact rulings based on your situation.</div>`;
+}
+
+// ==============================
+// FEATURE 5: CURRENCY CONVERTER
+// ==============================
+const RATES_TO_INR={
+  INR:1,USD:84.5,EUR:91.2,GBP:107.3,AED:23.0,SAR:22.5,JPY:0.56,CAD:62.1,AUD:55.4,SGD:63.2
+};
+
+function getRate(from,to){
+  const fromINR=RATES_TO_INR[from]||1;
+  const toINR=RATES_TO_INR[to]||1;
+  return fromINR/toINR;
+}
+
+function convertCurrency(){
+  const amt=parseFloat($('curAmt')?.value||1);
+  const from=$('curFrom')?.value||'INR';
+  const to=$('curTo')?.value||'USD';
+  const rate=getRate(from,to);
+  const result=amt*rate;
+  const el=$('curResult');
+  const rateEl=$('curRate');
+  if(el)el.textContent=`${amt.toLocaleString('en-IN')} ${from} = ${result.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:4})} ${to}`;
+  if(rateEl)rateEl.textContent=`1 ${from} = ${rate.toFixed(4)} ${to}  ·  1 ${to} = ${(1/rate).toFixed(4)} ${from}`;
+}
+
+function swapCurrencies(){
+  const f=$('curFrom'),t=$('curTo');
+  if(!f||!t)return;
+  const tmp=f.value;f.value=t.value;t.value=tmp;
+  convertCurrency();
+}
+
+function renderCurrencyRefTable(){
+  const el=$('curRefTable');if(!el)return;
+  const pairs=[['USD','🇺🇸'],['EUR','🇪🇺'],['GBP','🇬🇧'],['AED','🇦🇪'],['SAR','🇸🇦'],['JPY','🇯🇵'],['CAD','🇨🇦'],['SGD','🇸🇬']];
+  el.innerHTML=pairs.map(([cur,flag])=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
+      <span style="font-size:13px">${flag} ${cur}</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gold)">1 ${cur} = ₹${RATES_TO_INR[cur]?.toFixed(2)}</span>
+    </div>`).join('');
+}
+
+// ==============================
+// FEATURE 4: NOTES
+// ==============================
+function renderNotes(){
+  const cont=$('notesCont');if(!cont)return;
+  if(!DB.notes.length){cont.innerHTML='<div class="emp"><div class="emp-i">📝</div><div class="emp-t">No notes yet. Add your first note!</div></div>';return;}
+  const sorted=[...DB.notes].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  const tagIcons={general:'📝',reminder:'⏰',idea:'💡',important:'⭐',tax:'🧾'};
+  cont.innerHTML=sorted.map(n=>`
+    <div class="note-card">
+      <button class="note-del" onclick="delNote('${n.id}')">✕</button>
+      <div class="note-date">${tagIcons[n.tag]||'📝'} ${n.tag?.toUpperCase()||'GENERAL'} &nbsp;·&nbsp; ${n.date||''}</div>
+      ${n.title?`<div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px">${esc(n.title)}</div>`:''}
+      <div class="note-txt">${esc(n.content)}</div>
+    </div>`).join('');
+}
+
+function saveNote(){
+  const content=($('noteTxt')?.value||'').trim();
+  if(!content){toast('Write something in the note','error');return;}
+  DB.notes.push({id:uid(),title:($('noteTitle')?.value||'').trim(),content,tag:$('noteTag')?.value||'general',date:today()});
+  saveDB();
+  $('noteTitle').value='';$('noteTxt').value='';
+  renderNotes();toast('Note saved!','success');
+}
+
+function delNote(id){
+  DB.notes=DB.notes.filter(n=>n.id!==id);saveDB();renderNotes();
+}
+
+// ==============================
+// FEATURE 3: QUICK CALCULATOR (FAB)
+// ==============================
+let calcExpr='';
+function toggleCalc(){
+  const p=$('calcPanel');
+  p.classList.toggle('open');
+}
+function calcInput(ch){
+  const dispMap={'*':'×','/':'÷','-':'−'};
+  const exprMap={'×':'*','÷':'/','−':'-'};
+  // For display use friendly chars, for eval use real operators
+  const friendlyCh=dispMap[ch]||ch;
+  const evalCh=exprMap[ch]||ch;
+  if(calcExpr==='0'&&/\d/.test(ch)){calcExpr=evalCh;}
+  else{calcExpr+=evalCh;}
+  const disp=calcExpr.replace(/\*/g,'×').replace(/\//g,'÷').replace(/-/g,'−');
+  $('calcDisplay').textContent=disp||'0';
+}
+function calcClear(){calcExpr='';$('calcDisplay').textContent='0';}
+function calcEval(){
+  try{
+    // Replace friendly display chars with real operators
+    const expr=calcExpr.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-');
+    // eslint-disable-next-line no-eval
+    const result=Function('"use strict";return ('+expr+')')();
+    const r=parseFloat(result.toFixed(10));
+    $('calcDisplay').textContent=r;
+    calcExpr=String(r);
+  }catch{$('calcDisplay').textContent='Error';calcExpr='';}
+}
+
+// ==============================
+// FEATURE 9: PRINT REPORT
+// ==============================
+function printReport(){
+  // Switch to dashboard for print
+  showSec('dashboard');
+  setTimeout(()=>window.print(),400);
 }
 
 // PROFILE
@@ -1448,9 +2114,8 @@ function setCur(v){CUR=v;localStorage.setItem(curUser.ns+'_cur',v);renderDashboa
 
 // BACKUP / RESTORE
 function backupJSON(){
-  // Build a clean backup object with all DB arrays explicitly
   const data={
-    version:5,
+    version:6,
     user:curUser.username,
     exported:new Date().toISOString(),
     accounts:DB.accounts||[],
@@ -1460,7 +2125,9 @@ function backupJSON(){
     commitments:DB.commitments||[],
     budgets:DB.budgets||[],
     goals:DB.goals||[],
-    stocks:DB.stocks||[]
+    stocks:DB.stocks||[],
+    recurring:DB.recurring||[],
+    notes:DB.notes||[]
   };
   const json=JSON.stringify(data,null,2);
   const blob=new Blob([json],{type:'application/json;charset=utf-8'});
@@ -1482,7 +2149,6 @@ function restoreBackup(event){
   reader.onload=ev=>{
     try{
       const data=JSON.parse(ev.target.result);
-      // Validate it's an Ababeel backup
       if(!data.accounts&&!data.entries){toast('Invalid backup file — no data found','error');return;}
       if(!confirm(`Restore backup from ${data.exported?new Date(data.exported).toLocaleString('en-IN'):'unknown date'}?\n\nThis will REPLACE your current data.\n\nEntries: ${(data.entries||[]).length} | Accounts: ${(data.accounts||[]).length}`))return;
       DB_KEYS.forEach(k=>{
@@ -1572,7 +2238,6 @@ function parseFile(){
 // INIT
 ensureAdmin();
 renderQuickUsers();
-// Set entry date default
 window.addEventListener('DOMContentLoaded',()=>{const d=$('eDate');if(d)d.value=today();});
 onStockActChange();
 </script>
